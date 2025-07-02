@@ -40,9 +40,12 @@ vibration = round(random.uniform(0.1, 5.0), 2)  # m/s²
 
 state = "OK" if weight < 5.0 else "ALERT"
 
+# timestamp como epoch en segundos (int)
+epoch_time = int(time.time())
+
 message_dict = {
     "device": args.client_id,
-    "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
+    "timestamp": epoch_time,
     "sensors": {
         "weight_kg": weight,
         "temperature_c": temperature,
